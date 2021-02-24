@@ -5,7 +5,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
-#import "Orientation.h"
+//this was causing crash on  call start
+// #import "Orientation.h"
 
 
 #ifdef FB_SONARKIT_ENABLED
@@ -68,12 +69,12 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 }
 
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-  while ([[UIDevice currentDevice] isGeneratingDeviceOrientationNotifications]) {
-      [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-  }
+// - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//   while ([[UIDevice currentDevice] isGeneratingDeviceOrientationNotifications]) {
+//       [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+//   }
 
-  return [Orientation getOrientation];
-}
+//   return [Orientation getOrientation];
+// }
 
 @end
