@@ -5,8 +5,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
-//this was causing crash on  call start
-// #import "Orientation.h"
+
+ #import "Orientation.h"
 
 
 #ifdef FB_SONARKIT_ENABLED
@@ -76,5 +76,13 @@ static void InitializeFlipper(UIApplication *application) {
 
 //   return [Orientation getOrientation];
 // }
+
+// looks like react native Orientation has changed there implementation 
+//  from above commented to the code bellow 
+// https://github.com/yamill/react-native-orientation/commit/b45830cce0837fa668838554e023979497673c82
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  return [Orientation getOrientation];
+}
 
 @end
